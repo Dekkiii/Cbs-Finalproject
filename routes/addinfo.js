@@ -85,7 +85,7 @@ router.get('/addinfo', async (req, res, next) => {
           lastname: decryptedLastName
         };
       });
-      res.render('Addinfo', { userType, students:decryptedstudents, userId, errors: [], errorMessages: ''  });
+      res.render('Addinfo', { userType, students:decryptedstudents, userId, errors: [], errorMessages: '',errorMessages1: ''  });
       console.log(userId,user,students);
     } catch (err) {
       console.log(err);
@@ -150,7 +150,7 @@ router.post('/userinfo', [
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     const errorMessages = errors.array().map(error => error.msg);
-    return res.render('Addinfo', {students:decryptedstudents, userType ,userId, errors: errors.array(), errorMessages,});
+    return res.render('Addinfo', {students:decryptedstudents, userType ,userId, errors: errors.array(), errorMessages, errorMessages1: ''});
   }
 
   // Define the affine cipher key
