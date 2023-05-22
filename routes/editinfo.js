@@ -104,7 +104,8 @@ router.post('/editinfo', [
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     const errorMessages1 = errors.array().map(error => error.msg);
-    return res.render('Addinfo', { userType, students:decryptedstudents, userId, errors: errors.array(), errorMessages1});
+    console.log(userType,decryptedstudents, userId, errors.array(), errorMessages1)
+    return res.render('Addinfo', { userType, students:decryptedstudents, userId, errors: errors.array(),errorMessages: '', errorMessages1});
     
   }
 
